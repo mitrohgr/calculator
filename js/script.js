@@ -40,3 +40,20 @@ let operator = "+"
 let secondNumber = 13;
 
 console.log(operate(firstNumber, operator, secondNumber));
+
+let displayValue;
+
+const displayContainer = document.querySelector(".display-container");
+
+const numberButtons = document.querySelectorAll(".num");
+
+numberButtons.forEach((numberButton) => {
+  numberButton.addEventListener("click", function (e) {
+    populateDisplay(e);
+  });
+});
+
+function populateDisplay(e) {
+  displayContainer.textContent = e.target.textContent;
+  displayValue = displayContainer.textContent;
+}
