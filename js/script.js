@@ -18,3 +18,7 @@ console.log(`add(3, 2): ${add(3, 2)}`)
 console.log(`subtract(3, 2): ${subtract(3, 2)}`);
 console.log(`multiply(3, 2): ${multiply(3, 2)}`);
 console.log(`divide(3, 2): ${divide(3, 2)}`);
+
+let firstNumber;
+let operator;
+let secondNumber;
