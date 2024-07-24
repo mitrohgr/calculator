@@ -54,6 +54,10 @@ numberButtons.forEach((numberButton) => {
 });
 
 function populateDisplay(e) {
+  if (displayContainer.textContent.length >= 9) {
+    return;
+  }
+
   // When 0 is pressed at the beginning nothing happens, but when 0
   // is pressed after any other number, all occurrences are allowed
   if (displayContainer.textContent === "0") {
