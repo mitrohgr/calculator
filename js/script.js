@@ -14,11 +14,29 @@ function divide(a, b) {
   return a / b;
 }
 
-console.log(`add(3, 2): ${add(3, 2)}`)
-console.log(`subtract(3, 2): ${subtract(3, 2)}`);
-console.log(`multiply(3, 2): ${multiply(3, 2)}`);
-console.log(`divide(3, 2): ${divide(3, 2)}`);
+function operate(firstNumber, operator, secondNumber) {
+  let result;
+  switch (operator) {
+    case "+":
+      result = add(firstNumber, secondNumber);
+      break;
+    case "-":
+      result = subtract(firstNumber, secondNumber);
+      break;
+    case "*":
+      result = multiply(firstNumber, secondNumber);
+      break;
+    case "/":
+      result = divide(firstNumber, secondNumber);
+      break;
+    default:
+      result = "Invalid operator."
+  }
+  return result;
+}
 
-let firstNumber;
-let operator;
-let secondNumber;
+let firstNumber = 5;
+let operator = "+"
+let secondNumber = 13;
+
+console.log(operate(firstNumber, operator, secondNumber));
