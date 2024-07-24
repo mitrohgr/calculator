@@ -54,7 +54,7 @@ numberButtons.forEach((numberButton) => {
 });
 
 function populateDisplay(e) {
-  if (displayContainer.textContent.length >= 9) {
+  if (displayContainer.textContent.length >= 10) {
     return;
   }
 
