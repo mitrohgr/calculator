@@ -7,3 +7,42 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+.main-container {
+  gap: 5px;
+  width: 250px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column; 
+}
+
+.display-container,
+.button-container {
+  width: 250px;
+}
+
+.display-container {
+  padding: 8px 16px;
+  text-align: right;
+}
+
+.button-container {
+  gap: 10px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.button-container .first-row,
+.button-container .second-row,
+.button-container .third-row,
+.button-container .fourth-row,
+.button-container .fifth-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button-container button {
+  width: 45px;
+  height: 45px;
+}
