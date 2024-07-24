@@ -41,7 +41,7 @@ let secondNumber = 13;
 
 console.log(operate(firstNumber, operator, secondNumber));
 
-let displayValue;
+let displayValue = 0;
 
 const displayContainer = document.querySelector(".display-container");
 
@@ -54,6 +54,13 @@ numberButtons.forEach((numberButton) => {
 });
 
 function populateDisplay(e) {
-  displayContainer.textContent = e.target.textContent;
-  displayValue = displayContainer.textContent;
+  // When 0 is pressed at the beginning nothing happens, but when 0
+  // is pressed after any other number, all occurrences are allowed
+  if (displayContainer.textContent === "0") {
+    displayContainer.textContent = e.target.textContent;
+  } else {
+    displayContainer.textContent += e.target.textContent;
+  }
+  
+  displayValue = parseFloat(displayContainer.textContent);
 }
