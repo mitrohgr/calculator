@@ -150,13 +150,13 @@ function operate(prevNumber, operator, currNumber) {
   if (isNaN(result) || !isFinite(result)) {
     return NaN;
   }
-  if (result.toString().length >= 20) {
-    return NaN;
-  }
   if (result.toString().includes(".")) {
-    result = parseFloat(result.toFixed(7));
+    result = result.toFixed(7);
+    if (result.toString().length >= 20) {
+      return NaN;
+    }
   }
-  return result;
+  return parseFloat(result);
 }
 
 function add(prevNumber, currNumber) {
