@@ -12,8 +12,15 @@ buttons.forEach((button) => {
   button.addEventListener("click", handleEvent);
 });
 
+document.addEventListener("keydown", handleEvent);
+
 function handleEvent(e) {
-  inputValue = e.target.textContent;
+  let inputValue;
+  if (e.type === "click") {
+    inputValue = e.target.textContent;
+  } else if (e.type === "keydown") {
+    inputValue = e.key;
+  }
   if (inputValue === ".") {
     handleNumberInput(inputValue);
   } else if (isNaN(inputValue)) {
@@ -55,9 +62,11 @@ function handleSymbolInput(inputValue) {
       calcWEquals();
       break;
     case "Del":
+    case "Delete":
       calcDelete();
       break;
     case "Back":
+    case "Backspace":
       calcBackspace();
       break;
   }
