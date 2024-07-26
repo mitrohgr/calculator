@@ -31,6 +31,9 @@ function handleSymbolInput(inputValue) {
     case "=":
       calcWEquals();
       break;
+    case "AC":
+      calcAllClear();
+      break;
   }
 }
 
@@ -78,6 +81,14 @@ function calcWEquals() {
   display.textContent = result;
   prevNumber = result;
   currNumber = "";
+}
+
+function calcAllClear() {
+  result = 0;
+  operator = null;
+  currNumber = "";
+  prevNumber = null;
+  display.textContent = "0";
 }
 
 function operate(prevNumber, operator, currNumber) {
