@@ -25,6 +25,9 @@ function handleEvent(e) {
 
 function handleNumberInput(inputValue) {
   number = inputValue;
+  if (currNumber.length >= 15) {
+    return;
+  }
   switch (number) {
     case ".":
       if (display.textContent.includes(".")) {
@@ -106,7 +109,6 @@ function calcWEquals() {
   } else {
     display.textContent = result;
   }
-  display.textContent = result;
   prevNumber = result;
   currNumber = "";
 }
@@ -147,6 +149,12 @@ function operate(prevNumber, operator, currNumber) {
   }
   if (isNaN(result) || !isFinite(result)) {
     return NaN;
+  }
+  if (result.toString().length >= 15) {
+    return NaN;
+  }
+  if (result.toString().includes(".")) {
+    result = parseFloat(result.toFixed(7));
   }
   return result;
 }
