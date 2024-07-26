@@ -28,6 +28,9 @@ function handleSymbolInput(inputValue) {
     case "-": case "+":
       calcWOperator(symbol);
       break;
+    case "=":
+      calcWEquals();
+      break;
   }
 }
 
@@ -49,6 +52,15 @@ function calcWOperator(symbol) {
     prevNumber = result;
   }
   operator = symbol;
+  currNumber = "";
+}
+
+function calcWEquals() {
+  prevNumber = parseFloat(prevNumber);
+  currNumber = parseFloat(currNumber);
+  result = operate(prevNumber, operator, currNumber);
+  display.textContent = result;
+  prevNumber = result;
   currNumber = "";
 }
 
