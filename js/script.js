@@ -14,11 +14,31 @@ buttons.forEach((button) => {
 
 function handleEvent(e) {
   inputValue = e.target.textContent;
-  if (isNaN(inputValue)) {
+  if (inputValue === ".") {
+    handleNumberInput(inputValue);
+  } else if (isNaN(inputValue)) {
     handleSymbolInput(inputValue);
   } else {
     handleNumberInput(inputValue);
   }
+}
+
+function handleNumberInput(inputValue) {
+  number = inputValue;
+  switch (number) {
+    case ".":
+      if (display.textContent.includes(".")) {
+        return;
+      } else if (currNumber.length === 0) {
+        currNumber = "0.";
+      } else {
+        currNumber += ".";
+      }
+      break;
+    default:
+      currNumber += number;
+  }
+  display.textContent = currNumber;
 }
 
 function handleSymbolInput(inputValue) {
@@ -38,12 +58,6 @@ function handleSymbolInput(inputValue) {
       calcBackspace();
       break;
   }
-}
-
-function handleNumberInput(inputValue) {
-  currNumber += inputValue;
-  currNumber = parseFloat(currNumber);
-  display.textContent = currNumber;
 }
 
 function calcWOperator(symbol) {
