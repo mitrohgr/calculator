@@ -8,7 +8,7 @@ html {
   box-sizing: inherit;
 }
 
-.main-container {
+.main {
   gap: 5px;
   width: 250px;
   display: flex;
@@ -16,34 +16,34 @@ html {
   flex-direction: column; 
 }
 
-.display-container,
-.button-container {
+.display,
+.buttons {
   width: 250px;
 }
 
-.display-container {
+.display {
   font-size: 24px;
   padding: 8px 16px;
   text-align: right;
 }
 
-.button-container {
+.buttons {
   gap: 10px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
 }
 
-.button-container .first-row,
-.button-container .second-row,
-.button-container .third-row,
-.button-container .fourth-row,
-.button-container .fifth-row {
+.buttons .first,
+.buttons .second,
+.buttons .third,
+.buttons .fourth,
+.buttons .fifth {
   display: flex;
   justify-content: space-evenly;
 }
 
-.button-container button {
+.buttons button {
   width: 45px;
   height: 45px;
 }
