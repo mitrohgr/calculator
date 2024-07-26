@@ -42,6 +42,9 @@ function handleNumberInput(inputValue) {
 
 function calcWOperator(symbol) {
   if (operator === null) {
+    if (currNumber === "") {
+      return;
+    }
     prevNumber = currNumber;
     display.textContent = currNumber;
   } else if (prevNumber !== null) {
@@ -60,6 +63,15 @@ function calcWOperator(symbol) {
 }
 
 function calcWEquals() {
+  if (currNumber === "") {
+    if (prevNumber !== null) {
+      return;
+    }
+    return;
+  }
+  if (operator === null) {
+    return;
+  }
   prevNumber = parseFloat(prevNumber);
   currNumber = parseFloat(currNumber);
   result = operate(prevNumber, operator, currNumber);
