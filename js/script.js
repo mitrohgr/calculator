@@ -75,7 +75,12 @@ function calcWOperator(symbol) {
     prevNumber = parseFloat(prevNumber);
     currNumber = parseFloat(currNumber);
     result = operate(prevNumber, operator, currNumber);
-    display.textContent = result;
+    if (isNaN(result)) {
+      display.textContent = "Funny!";
+      return;
+    } else {
+      display.textContent = result;
+    }
     prevNumber = result;
   }
   operator = symbol;
@@ -95,6 +100,12 @@ function calcWEquals() {
   prevNumber = parseFloat(prevNumber);
   currNumber = parseFloat(currNumber);
   result = operate(prevNumber, operator, currNumber);
+  if (isNaN(result)) {
+    display.textContent = "Funny!";
+    return;
+  } else {
+    display.textContent = result;
+  }
   display.textContent = result;
   prevNumber = result;
   currNumber = "";
@@ -133,6 +144,9 @@ function operate(prevNumber, operator, currNumber) {
     case "/":
       result = divide(prevNumber, currNumber);
       break;
+  }
+  if (isNaN(result) || !isFinite(result)) {
+    return NaN;
   }
   return result;
 }
