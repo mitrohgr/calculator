@@ -22,7 +22,9 @@ html {
 }
 
 .display {
+  flex-shrink: 0;
   font-size: 24px;
+  flex-basis: 44px;
   padding: 8px 16px;
   text-align: right;
 }
