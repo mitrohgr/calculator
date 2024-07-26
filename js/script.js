@@ -35,36 +35,23 @@ function operate(firstNumber, operator, secondNumber) {
   return result;
 }
 
-let firstNumber = 5;
-let operator = "+"
-let secondNumber = 13;
+let inputValue;
+let currNumber = "";
 
-console.log(operate(firstNumber, operator, secondNumber));
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll (".btn");
 
-let displayValue = 0;
-
-const displayContainer = document.querySelector(".display-container");
-
-const numberButtons = document.querySelectorAll(".num");
-
-numberButtons.forEach((numberButton) => {
-  numberButton.addEventListener("click", function (e) {
-    populateDisplay(e);
-  });
+buttons.forEach((button) => { 
+  button.addEventListener("click", handleEvent);
 });
 
-function populateDisplay(e) {
-  if (displayContainer.textContent.length >= 10) {
-    return;
-  }
+function handleEvent(e) {
+  inputValue = e.target.textContent;
+  handleNumberInput(inputValue);
+}
 
-  // When 0 is pressed at the beginning nothing happens, but when 0
-  // is pressed after any other number, all occurrences are allowed
-  if (displayContainer.textContent === "0") {
-    displayContainer.textContent = e.target.textContent;
-  } else {
-    displayContainer.textContent += e.target.textContent;
-  }
-  
-  displayValue = parseFloat(displayContainer.textContent);
+function handleNumberInput(inputValue) {
+  currNumber += inputValue;
+  currNumber = parseFloat(currNumber);
+  display.textContent = currNumber;
 }
