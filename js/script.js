@@ -45,6 +45,10 @@ function calcWOperator(symbol) {
     prevNumber = currNumber;
     display.textContent = currNumber;
   } else if (prevNumber !== null) {
+    if (currNumber === "") {
+      operator = symbol;
+      return;
+    }
     prevNumber = parseFloat(prevNumber);
     currNumber = parseFloat(currNumber);
     result = operate(prevNumber, operator, currNumber);
