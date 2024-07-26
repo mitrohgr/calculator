@@ -35,6 +35,7 @@ function operate(firstNumber, operator, secondNumber) {
   return result;
 }
 
+let symbol;
 let inputValue;
 let currNumber = "";
 
@@ -47,11 +48,25 @@ buttons.forEach((button) => {
 
 function handleEvent(e) {
   inputValue = e.target.textContent;
-  handleNumberInput(inputValue);
+  if (isNaN(inputValue)) {
+    handleSymbolInput(inputValue);
+  } else {
+    handleNumberInput(inputValue);
+  }
 }
 
 function handleNumberInput(inputValue) {
   currNumber += inputValue;
   currNumber = parseFloat(currNumber);
   display.textContent = currNumber;
+}
+
+function handleSymbolInput(inputValue) {
+  symbol = inputValue;
+  switch (symbol) {
+    case "/": case "*":
+    case "-": case "+":
+      calcWOperator(symbol);
+      break;
+  }
 }
