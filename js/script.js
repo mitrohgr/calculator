@@ -34,6 +34,9 @@ function handleSymbolInput(inputValue) {
     case "AC":
       calcAllClear();
       break;
+    case "Back":
+      calcBackspace();
+      break;
   }
 }
 
@@ -89,6 +92,16 @@ function calcAllClear() {
   currNumber = "";
   prevNumber = null;
   display.textContent = "0";
+}
+
+function calcBackspace() {
+  display.textContent = display.textContent.slice(0, -1);
+  currNumber = display.textContent;
+  if (currNumber === "") {
+    currNumber = "";
+    return;
+  }
+  currNumber = parseFloat(currNumber);
 }
 
 function operate(prevNumber, operator, currNumber) {
