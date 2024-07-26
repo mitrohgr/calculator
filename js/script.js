@@ -31,8 +31,8 @@ function handleSymbolInput(inputValue) {
     case "=":
       calcWEquals();
       break;
-    case "AC":
-      calcAllClear();
+    case "Del":
+      calcDelete();
       break;
     case "Back":
       calcBackspace();
@@ -86,7 +86,7 @@ function calcWEquals() {
   currNumber = "";
 }
 
-function calcAllClear() {
+function calcDelete() {
   result = 0;
   operator = null;
   currNumber = "";
