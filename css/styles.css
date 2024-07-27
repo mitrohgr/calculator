@@ -13,6 +13,20 @@ body {
   font-family: "Arial", "Helvetica", sans-serif;
 }
 
+h1 {
+  width: 275px;
+  color: white;
+  font-size: 50px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 50% 20% / 10% 20%;
+  background-color: hsla(15, 73%, 43%, 0.169);
+  box-shadow: 2px 5px 2px 2px hsl(11, 12%, 82%);
+  background: linear-gradient(
+    45deg,hsl(14, 100%, 47%) 0 50%,hsl(14 100% 32%) 50% 100%
+  );
+}
+
 .main {
   gap: 6px;
   width: 400px;
